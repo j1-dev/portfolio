@@ -2,10 +2,10 @@ import { JSX, useEffect, useRef } from 'react';
 import '../style.css';
 export default function Morph({
   texts,
-  size,
+  size = 90,
 }: {
   texts: string[];
-  size: number;
+  size?: number;
 }): JSX.Element {
   const text1Ref = useRef<HTMLSpanElement>(null);
   const text2Ref = useRef<HTMLSpanElement>(null);

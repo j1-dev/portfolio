@@ -93,16 +93,16 @@ export function App() {
       <main class="flex-grow container mx-auto px-4 pt-28 pb-16 space-y-16">
         {/* Intro Section */}
         <section id="intro" class="text-center py-12">
-          <h1 class="text-5xl font-extrabold mb-4">
-            Hi, I'm Juan García Marín
+          <h1 class="text-5xl mb-4">
+            Hi, I'm{' '}
+            <span class="font-sans font-semibold hover:font-black hover:text-6xl transition-all">
+              Juan García Marín
+            </span>
           </h1>
-          <div class="text-lg mb-6">
+          <div class="text-xl mb-6">
             <p>I'm a full-stack developer specializing in </p>
-            <div class="border-border text-6xl relative">
-              <Morph
-                texts={['React', 'Java', 'Docker', 'Integration']}
-                size={40}
-              />
+            <div class="text-7xl relative h-24">
+              <Morph texts={['React', 'Java', 'Docker', 'Integration']} />
             </div>
             <p>
               I'm foccused on building fast, modern web experiences with clean,
@@ -124,17 +124,7 @@ export function App() {
             </a>
           </div>
           <div class="justify-center flex-wrap grid gap-y-2 gap-x-7 grid-cols-3">
-            {[
-              'TypeScript',
-              'React',
-              'Next.js',
-              'Angular',
-              'TailwindCSS',
-              'Java',
-              'Spring Framework',
-              'PostgresSQL',
-              'Docker',
-            ].map((skill) => (
+            {skills.map((skill) => (
               <span
                 key={skill}
                 class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm">
