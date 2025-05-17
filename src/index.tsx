@@ -62,11 +62,11 @@ export function App() {
   ];
 
   return (
-    <div class="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div class="flex flex-col min-h-screen bg-background text-foreground">
       {/* Navbar */}
-      <nav class="fixed top-0 w-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm shadow-sm z-20">
+      <nav class="fixed top-0 w-full bg-popover/70 backdrop-blur-sm shadow-sm z-20">
         <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
-          <a href="#intro" class="text-2xl font-bold">
+          <a href="#intro" class="text-2xl font-bold text-primary">
             j1-dev
           </a>
           <ul class="hidden md:flex space-x-6">
@@ -74,7 +74,7 @@ export function App() {
               <li key={section}>
                 <a
                   href={`#${section.toLowerCase()}`}
-                  class="hover:text-blue-600 dark:hover:text-blue-400 transition">
+                  class="transition text-secondary-foreground hover:text-accent">
                   {section}
                 </a>
               </li>
@@ -82,11 +82,10 @@ export function App() {
           </ul>
           <button
             onClick={() => setDark(!dark)}
-            class="p-2 rounded-full focus:outline-none"
+            class="p-2 rounded-full focus:outline-none text-primary"
             aria-label="Toggle dark mode">
             {dark ? '☀️' : '🌙'}
           </button>
-          {/* Mobile menu placeholder */}
         </div>
       </nav>
 
@@ -95,17 +94,17 @@ export function App() {
         <section id="intro" class="text-center py-12">
           <h1 class="text-5xl mb-4">
             Hi, I'm{' '}
-            <span class="font-sans font-semibold hover:font-black hover:text-6xl transition-all">
+            <span class="font-sans font-semibold hover:font-black hover:text-6xl transition-all text-primary">
               Juan García Marín
             </span>
           </h1>
           <div class="text-xl mb-6">
-            <p>I'm a full-stack developer specializing in </p>
+            <p>I'm a full-stack developer specializing in</p>
             <div class="text-7xl relative h-24">
               <Morph texts={['React', 'Java', 'Docker', 'Integration']} />
             </div>
             <p>
-              I'm foccused on building fast, modern web experiences with clean,
+              I'm focused on building fast, modern web experiences with clean,
               modular code.
             </p>
           </div>
@@ -113,21 +112,21 @@ export function App() {
             <a
               href="https://github.com/j1-dev"
               target="_blank"
-              class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+              class="px-4 py-2 rounded bg-primary text-primary-foreground hover:bg-accent transition">
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/juan-garcia-marin/"
               target="_blank"
-              class="px-4 py-2 border border-gray-500 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+              class="px-4 py-2 rounded border border-border text-secondary-foreground hover:bg-secondary transition">
               LinkedIn
             </a>
           </div>
-          <div class="justify-center flex-wrap grid gap-y-2 gap-x-7 grid-cols-3">
+          <div class="grid grid-cols-3 gap-x-7 gap-y-2 justify-center">
             {skills.map((skill) => (
               <span
                 key={skill}
-                class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded text-sm">
+                class="px-3 py-1 rounded text-sm bg-muted text-muted-foreground">
                 {skill}
               </span>
             ))}
@@ -143,24 +142,22 @@ export function App() {
             {projectList.map((p) => (
               <div
                 key={p.title}
-                class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition p-6 flex flex-col justify-between">
+                class="p-6 flex flex-col justify-between rounded-xl shadow hover:shadow-lg transition bg-card text-card-foreground">
                 <div>
                   <h3 class="text-2xl font-semibold mb-2">
                     <a
                       href={p.url}
                       target="_blank"
-                      class="hover:text-blue-600 dark:hover:text-blue-400 transition">
+                      class="transition text-primary hover:text-accent">
                       {p.title}
                     </a>
                   </h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-300">
-                    {p.desc}
-                  </p>
+                  <p class="text-secondary-foreground">{p.desc}</p>
                 </div>
                 <a
                   href={p.url}
                   target="_blank"
-                  class="mt-4 inline-block text-blue-600 dark:text-blue-400 hover:underline text-sm">
+                  class="mt-4 inline-block text-sm transition text-accent hover:underline">
                   View Project →
                 </a>
               </div>
@@ -176,8 +173,8 @@ export function App() {
           <form
             action="https://formspree.io/f/YOUR_FORM_ID"
             method="POST"
-            class="space-y-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            {['Name', 'Email', 'Message'].map((field, idx) => (
+            class="space-y-4 p-6 rounded-xl shadow-lg bg-card text-card-foreground">
+            {['Name', 'Email', 'Message'].map((field) => (
               <label class="block" key={field}>
                 <span class="font-medium">{field}</span>
                 {field !== 'Message' ? (
@@ -185,21 +182,19 @@ export function App() {
                     type={field === 'Email' ? 'email' : 'text'}
                     name={field.toLowerCase()}
                     required
-                    class="mt-1 block w-full px-4 py-2 border rounded-lg bg-gray-50 dark:bg-gray-700"
+                    class="mt-1 block w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground"
                   />
                 ) : (
                   <textarea
                     name="message"
                     rows={5}
                     required
-                    class="mt-1 block w-full px-4 py-2 border rounded-lg bg-gray-50 dark:bg-gray-700"
+                    class="mt-1 block w-full px-4 py-2 rounded-lg border border-border bg-input text-foreground"
                   />
                 )}
               </label>
             ))}
-            <button
-              type="submit"
-              class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+            <button class="w-full py-3 rounded-lg bg-primary text-primary-foreground hover:bg-accent transition">
               Send Message
             </button>
           </form>
@@ -207,7 +202,7 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400">
+      <footer class="text-center py-6 text-sm text-secondary-foreground">
         © 2025 Juan García Marín.
       </footer>
     </div>
