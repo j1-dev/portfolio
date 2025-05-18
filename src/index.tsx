@@ -89,7 +89,10 @@ function App() {
         {/* Intro Section */}
         <section id="intro" class="text-center py-12">
           <h1 class="text-5xl mb-4">
-            {t('greeting', { name: 'Juan García Marín' })}
+            {t('greeting')}{' '}
+            <span class="font-sans font-semibold hover:font-black hover:text-6xl transition-all text-primary">
+              Juan García Marín
+            </span>
           </h1>
           <div class="text-xl mb-6">
             <p>{t('tagline')}</p>
