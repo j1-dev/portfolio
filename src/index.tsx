@@ -57,7 +57,7 @@ function App() {
       <nav class="fixed top-0 w-full bg-popover/70 backdrop-blur-sm shadow-sm z-20">
         <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
           <a href="#intro" class="text-4xl font-black">
-            <img src={'/public/j1.png'} width={48} class="rounded-full"/>
+            <img src={'/j1.png'} width={48} class="rounded-full"/>
           </a>
           <ul class="hidden md:flex space-x-6">
             {['home', 'projects', 'contact'].map((key) => (
