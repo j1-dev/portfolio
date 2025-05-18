@@ -1,6 +1,6 @@
 import './i18n';
 import { render } from 'preact';
-import { useLayoutEffect, useState } from 'preact/hooks';
+import { useLayoutEffect, useState, useEffect } from 'preact/hooks';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from './i18n';
 import Morph from './components/Morph';
@@ -8,6 +8,8 @@ import './style.css';
 
 function App() {
   const { t, i18n } = useTranslation();
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   // Determine initial theme based on localStorage or system preference
   const getInitialTheme = () =>
@@ -24,51 +26,28 @@ function App() {
     localStorage.theme = dark ? 'dark' : 'light';
   }, [dark]);
 
-  const projectList = [
-    {
-      title: 'j1.wtf',
-      desc: 'Realtime twitter-like web app made with React & Firebase.',
-      url: '#',
-    },
-    {
-      title: 'Intellipic',
-      desc: 'AI-powered image generator with fine-tuning.',
-      url: 'https://github.com/j1-dev/intellipic',
-    },
-    {
-      title: 'Erasmus Project at CGI',
-      desc: 'Full-stack app with Spring Boot, Angular, PostgreSQL, Docker.',
-      url: '#',
-    },
-    {
-      title: 'Leelo',
-      desc: 'Reddit-like mobile app using React Native & Supabase.',
-      url: 'https://github.com/j1-dev/leelo',
-    },
-    {
-      title: 'Seal',
-      desc: 'Next.js 15 & Supabase remake of my first project.',
-      url: 'https://github.com/j1-dev/seal',
-    },
-  ];
+  // Fade-in modal when selectedProject changes
+  useEffect(() => {
+    if (selectedProject) {
+      // small timeout to trigger CSS transition
+      requestAnimationFrame(() => setShowModal(true));
+    }
+  }, [selectedProject]);
 
-  const skills = [
-    'TypeScript',
-    'React',
-    'Next.js',
-    'Angular',
-    'TailwindCSS',
-    'Java',
-    'Spring Framework',
-    'PostgreSQL',
-    'MySQL',
-    'Docker',
-    'Microservices Integration',
-  ];
+  // Load translated lists or fall back
+  const projectList =
+    (t('projectList', { returnObjects: true }) as any[]) || [];
+  const skills = (t('skills', { returnObjects: true }) as string[]) || [];
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setLang(lng);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    // wait for fade-out then clear selection
+    setTimeout(() => setSelectedProject(null), 300);
   };
 
   return (
@@ -141,7 +120,7 @@ function App() {
               <span
                 key={skill}
                 class="px-3 py-1 rounded text-sm bg-muted text-muted-foreground">
-                {skill}
+                {t(skill, { defaultValue: skill })}
               </span>
             ))}
           </div>
@@ -156,27 +135,54 @@ function App() {
             {projectList.map((p) => (
               <div
                 key={p.title}
-                class="p-6 flex flex-col justify-between rounded-xl shadow hover:shadow-lg transition bg-card text-card-foreground">
-                <div>
-                  <h3 class="text-2xl font-semibold mb-2">
-                    <a
-                      href={p.url}
-                      target="_blank"
-                      class="transition text-primary hover:text-accent">
-                      {p.title}
-                    </a>
-                  </h3>
-                  <p class="text-secondary-foreground">{p.desc}</p>
-                </div>
-                <a
-                  href={p.url}
-                  target="_blank"
-                  class="mt-4 inline-block text-sm transition text-accent hover:underline">
-                  {t('viewProject', { defaultValue: 'View Project →' })}
-                </a>
+                onClick={() => setSelectedProject(p)}
+                class="cursor-pointer p-6 flex flex-col justify-between rounded-xl shadow hover:shadow-lg transition bg-card text-card-foreground">
+                <h3 class="text-2xl font-semibold mb-2">
+                  {t(p.title, { defaultValue: p.title })}
+                </h3>
+                <p class="text-secondary-foreground">
+                  {t(p.desc, { defaultValue: p.desc })}
+                </p>
+                <span class="mt-4 text-sm transition text-accent hover:underline">
+                  {t('viewProject')}
+                </span>
               </div>
             ))}
           </div>
+
+          {/* Modal with fade-in/out */}
+          {selectedProject && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center">
+              <div
+                className={`fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
+                  showModal ? 'opacity-100' : 'opacity-0'
+                }`}
+                onClick={closeModal}
+              />
+              <div
+                className={`bg-card text-card-foreground p-6 rounded-xl max-w-lg w-full shadow-lg relative transform transition-all duration-300 ${
+                  showModal ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}>
+                <button
+                  onClick={closeModal}
+                  class="absolute top-3 right-3 text-xl font-bold text-foreground">
+                  ✕
+                </button>
+                <h3 class="text-2xl font-bold mb-2">
+                  {t(selectedProject.title)}
+                </h3>
+                <p class="mb-4 text-secondary-foreground">
+                  {t(selectedProject.desc)}
+                </p>
+                <a
+                  href={selectedProject.url}
+                  target="_blank"
+                  class="text-accent hover:underline">
+                  {t('visitProject')}
+                </a>
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Contact Section */}
