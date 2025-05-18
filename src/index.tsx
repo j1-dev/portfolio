@@ -5,6 +5,7 @@ import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from './i18n';
 import Morph from './components/Morph';
 import './style.css';
+import { TiltCard } from './components/TiltCard';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -136,20 +137,21 @@ function App() {
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {projectList.map((p) => (
-              <div
-                key={p.title}
-                onClick={() => setSelectedProject(p)}
-                class="cursor-pointer p-6 flex flex-col justify-between rounded-xl shadow hover:shadow-lg transition bg-card text-card-foreground">
-                <h3 class="text-2xl font-semibold mb-2">
-                  {t(p.title, { defaultValue: p.title })}
-                </h3>
-                <p class="text-secondary-foreground">
-                  {t(p.desc, { defaultValue: p.desc })}
-                </p>
-                <span class="mt-4 text-sm transition text-accent hover:underline">
-                  {t('viewProject')}
-                </span>
-              </div>
+              <TiltCard key={p.title} options={{ max: 20, speed: 500 }}>
+                <div
+                  onClick={() => setSelectedProject(p)}
+                  class="cursor-pointer p-6 flex flex-col justify-between rounded-xl shadow-lg transition hover:shadow-2xl bg-card text-card-foreground">
+                  <h3 class="text-2xl font-semibold mb-2">
+                    {t(p.title, { defaultValue: p.title })}
+                  </h3>
+                  <p class="text-secondary-foreground">
+                    {t(p.desc, { defaultValue: p.desc })}
+                  </p>
+                  <span class="mt-4 text-sm transition text-accent hover:underline">
+                    {t('viewProject')}
+                  </span>
+                </div>
+              </TiltCard>
             ))}
           </div>
 
