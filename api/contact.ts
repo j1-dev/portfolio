@@ -9,11 +9,11 @@ export default async function handler(req: Request): Promise<Response> {
     });
   }
 
-  const { name, email, message } = await req.json();
+  const { name, message } = await req.json();
 
   // Prepare the Resend payload
   const payload = {
-    from: `${name} <${email}>`,
+    from: `${name}`,
     to: [process.env.MY_EMAIL!], // set via Vercel Environment Variables
     subject: `New message from ${name}`,
     html: `<p>${message}</p>`,
