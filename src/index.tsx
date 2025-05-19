@@ -221,7 +221,7 @@ function App() {
           <form
             onSubmit={handleSubmit}
             class="space-y-4 p-6 rounded-xl shadow-lg bg-card text-card-foreground">
-            {['name', 'email', 'message'].map((field) => (
+            {['name', 'message'].map((field) => (
               <label class="block" key={field}>
                 <span class="font-medium">{t(field)}</span>
                 {field !== 'message' ? (
