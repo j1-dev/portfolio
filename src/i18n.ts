@@ -18,17 +18,17 @@ const resources = {
         {
           title: 'j1.wtf',
           desc: 'Realtime twitter-like web app made with React & Firebase.',
-          url: '#',
+          url: 'https://j1-old.vercel.app/Login',
         },
         {
           title: 'Intellipic',
           desc: 'AI-powered image generator with fine-tuning.',
-          url: 'https://github.com/j1-dev/intellipic',
+          url: 'https://intellipic.vercel.app/',
         },
         {
           title: 'Erasmus Project at CGI',
           desc: 'Full-stack app with Spring Boot, Angular, PostgreSQL, Docker.',
-          url: '#',
+          url: 'https://github.com/j1-dev/erasmus',
         },
         {
           title: 'Leelo',
@@ -38,7 +38,7 @@ const resources = {
         {
           title: 'Seal',
           desc: 'Next.js 15 & Supabase remake of my first project.',
-          url: 'https://github.com/j1-dev/seal',
+          url: 'https://the-seal.vercel.app/',
         },
       ],
       skills: [
@@ -87,17 +87,17 @@ const resources = {
         {
           title: 'j1.wtf',
           desc: 'Aplicación web en tiempo real similar a Twitter con React y Firebase.',
-          url: '#',
+          url: 'https://j1-old.vercel.app/Login',
         },
         {
           title: 'Intellipic',
           desc: 'Generador de imágenes con IA y fine-tuning.',
-          url: 'https://github.com/j1-dev/intellipic',
+          url: 'https://intellipic.vercel.app/',
         },
         {
           title: 'Proyecto Erasmus en CGI',
           desc: 'Aplicación full-stack con Spring Boot, Angular, PostgreSQL y Docker.',
-          url: '#',
+          url: 'https://github.com/j1-dev/erasmus',
         },
         {
           title: 'Leelo',
@@ -107,7 +107,7 @@ const resources = {
         {
           title: 'Seal',
           desc: 'Remake con Next.js 15 y Supabase de mi primer proyecto.',
-          url: 'https://github.com/j1-dev/seal',
+          url: 'https://the-seal.vercel.app/',
         },
       ],
       skills: [
