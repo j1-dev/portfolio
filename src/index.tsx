@@ -140,7 +140,7 @@ function App() {
               <TiltCard key={p.title} options={{ max: 20, speed: 500 }}>
                 <div
                   onClick={() => setSelectedProject(p)}
-                  class="cursor-pointer p-6 flex flex-col justify-between rounded-xl shadow-lg transition hover:shadow-2xl bg-card text-card-foreground">
+                  class="cursor-pointer p-6 flex flex-col justify-between h-44 rounded-xl shadow-lg transition hover:shadow-2xl bg-card text-card-foreground">
                   <h3 class="text-2xl font-semibold mb-2">
                     {t(p.title, { defaultValue: p.title })}
                   </h3>
