@@ -13,7 +13,7 @@ export default async function handler(req: Request): Promise<Response> {
 
   // Prepare the Resend payload
   const payload = {
-    from: `${name}`,
+    from: `${name} <${name}@j1.lol>`,
     to: [process.env.MY_EMAIL!], // set via Vercel Environment Variables
     subject: `New message from ${name}`,
     html: `<p>${message}</p>`,
