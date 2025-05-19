@@ -18,7 +18,7 @@ const resources = {
         {
           title: 'j1.wtf',
           desc: 'Realtime twitter-like web app made with React & Firebase.',
-          url: 'https://j1-old.vercel.app/Login',
+          url: 'https://j1-old.vercel.app/',
         },
         {
           title: 'Intellipic',
@@ -87,7 +87,7 @@ const resources = {
         {
           title: 'j1.wtf',
           desc: 'Aplicación web en tiempo real similar a Twitter con React y Firebase.',
-          url: 'https://j1-old.vercel.app/Login',
+          url: 'https://j1-old.vercel.app/',
         },
         {
           title: 'Intellipic',

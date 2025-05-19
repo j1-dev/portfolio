@@ -51,13 +51,36 @@ function App() {
     setTimeout(() => setSelectedProject(null), 300);
   };
 
+  const handleSubmit = async (e: Event) => {
+    e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    const data = Object.fromEntries(new FormData(form)) as Record<
+      string,
+      string
+    >;
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    const json = await res.json();
+    if (json.success) {
+      alert('Message sent!');
+      form.reset();
+    } else {
+      alert('Error: ' + json.error);
+    }
+  };
+
   return (
     <div class="flex flex-col min-h-screen bg-background text-foreground">
       {/* Navbar */}
       <nav class="fixed top-0 w-full bg-popover/70 backdrop-blur-sm shadow-sm z-20">
         <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
           <a href="#intro" class="text-4xl font-black">
-            <img src={'/j1.png'} width={48} class="rounded-full"/>
+            <img src={'/j1.png'} width={48} class="rounded-full" />
           </a>
           <ul class="hidden md:flex space-x-6">
             {['home', 'projects', 'contact'].map((key) => (
@@ -196,8 +219,7 @@ function App() {
             {t('getInTouch')}
           </h2>
           <form
-            action="https://formspree.io/f/YOUR_FORM_ID"
-            method="POST"
+            onSubmit={handleSubmit}
             class="space-y-4 p-6 rounded-xl shadow-lg bg-card text-card-foreground">
             {['name', 'email', 'message'].map((field) => (
               <label class="block" key={field}>
@@ -219,7 +241,9 @@ function App() {
                 )}
               </label>
             ))}
-            <button class="w-full py-3 rounded-lg bg-primary text-primary-foreground hover:bg-accent transition">
+            <button
+              type="submit"
+              class="w-full py-3 rounded-lg bg-primary text-primary-foreground hover:bg-accent transition">
               {t('sendMessage')}
             </button>
           </form>
