@@ -121,28 +121,24 @@ function App() {
           <div class="text-xl mb-6">
             <p>{t('tagline')}</p>
             <div class="text-7xl relative h-24">
-              <Morph
-                texts={
-                  t('specializations', { returnObjects: true }) as string[]
-                }
-              />
+              <Morph texts={t('skills', { returnObjects: true }) as string[]} />
             </div>
           </div>
-          <div class="flex justify-center space-x-4 mb-6">
+          <div class="flex justify-center space-x-4">
             <a
               href="https://github.com/j1-dev"
               target="_blank"
-              class="px-4 py-2 rounded bg-primary text-primary-foreground hover:bg-accent transition">
+              class="px-4 py-2 rounded bg-primary text-primary-foreground hover:bg-accent transition text-2xl">
               {t('github')}
             </a>
             <a
               href="https://www.linkedin.com/in/juan-garcia-marin/"
               target="_blank"
-              class="px-4 py-2 rounded border border-border text-secondary-foreground hover:bg-secondary transition">
+              class="px-4 py-2 rounded border border-border text-secondary-foreground hover:bg-secondary transition text-2xl">
               {t('linkedin')}
             </a>
           </div>
-          <div class="grid grid-cols-3 gap-x-7 gap-y-2 justify-center">
+          {/* <div class="grid grid-cols-3 gap-x-7 gap-y-2 justify-center">
             {skills.map((skill) => (
               <span
                 key={skill}
@@ -150,7 +146,7 @@ function App() {
                 {t(skill, { defaultValue: skill })}
               </span>
             ))}
-          </div>
+          </div> */}
         </section>
 
         {/* Projects Section */}
