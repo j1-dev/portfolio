@@ -1,5 +1,6 @@
 import './i18n';
 import { render } from 'preact';
+import { hydrate, prerender as ssr } from 'preact-iso';
 import { useLayoutEffect, useState, useEffect } from 'preact/hooks';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from './i18n';
@@ -268,12 +269,24 @@ function App() {
   );
 }
 
-// Mount the app client-side only
-const root = document.getElementById('app');
-if (root)
-  render(
+// // Mount the app client-side only
+// const root = document.getElementById('app');
+// if (root)
+//   render(
+//     <I18nextProvider i18n={i18n}>
+//       <App />
+//     </I18nextProvider>,
+//     root
+//   );
+
+if (typeof window !== 'undefined') {
+  hydrate(<App />, document.getElementById('app'));
+}
+
+export async function prerender(data) {
+  return await ssr(
     <I18nextProvider i18n={i18n}>
-      <App />
-    </I18nextProvider>,
-    root
+      <App {...data} />
+    </I18nextProvider>
   );
+}
