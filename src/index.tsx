@@ -188,26 +188,40 @@ function App() {
                 onClick={closeModal}
               />
               <div
-                className={`bg-card text-card-foreground p-6 rounded-xl max-w-lg w-full shadow-lg relative transform transition-all duration-300 ${
+                className={`bg-card text-card-foreground p-6 rounded-xl max-w-3xl w-full shadow-lg relative transform transition-all duration-300 ${
                   showModal ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
                 }`}>
                 <button
                   onClick={closeModal}
-                  class="absolute top-3 right-3 text-xl font-bold text-foreground">
+                  className="absolute top-3 right-3 text-xl font-bold text-foreground">
                   ✕
                 </button>
-                <h3 class="text-2xl font-bold mb-2">
-                  {t(selectedProject.title)}
-                </h3>
-                <p class="mb-4 text-secondary-foreground">
-                  {t(selectedProject.desc)}
-                </p>
-                <a
-                  href={selectedProject.url}
-                  target="_blank"
-                  class="text-accent hover:underline">
-                  {t('visitProject')}
-                </a>
+                <div className="flex flex-col md:flex-row">
+                  {/* Image Section */}
+                  <div className="relative w-full md:w-1/2 h-64 md:h-auto">
+                    <img
+                      src={selectedProject.pic_url}
+                      alt={selectedProject.title}
+                      className="w-full h-full object-cover rounded-l-xl"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-l from-background/100 to-transparent rounded-l-xl" />
+                  </div>
+                  {/* Content Section */}
+                  <div className="p-6 flex flex-col justify-center w-full md:w-1/2">
+                    <h3 className="text-2xl font-bold mb-2">
+                      {t(selectedProject.title)}
+                    </h3>
+                    <p className="mb-4 text-secondary-foreground">
+                      {t(selectedProject.full_description)}
+                    </p>
+                    <a
+                      href={selectedProject.url}
+                      target="_blank"
+                      className="text-accent hover:underline">
+                      {t('visitProject')}
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           )}
