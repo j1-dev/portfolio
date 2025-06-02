@@ -1,3 +1,4 @@
+'use client'
 import { useLocation } from 'preact-iso';
 
 export function Header() {

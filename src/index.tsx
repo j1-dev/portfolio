@@ -83,7 +83,7 @@ function App() {
           <a href="#intro" class="text-4xl font-black">
             <img src={'/j1.png'} width={48} class="rounded-full" />
           </a>
-          <ul class="hidden md:flex space-x-6">
+          <ul class="hidden md:flex space-x-6 items-center">
             {['home', 'projects', 'contact'].map((key) => (
               <li key={key}>
                 <a
@@ -93,6 +93,19 @@ function App() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href={
+                  lang === 'en'
+                    ? '/JUAN_GARCIA_MARIN_CV_2025_ENGLISH_V2.pdf'
+                    : '/JUAN_GARCIA_MARIN_CV_2025_ESPAÑOL_V2.pdf'
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-2 rounded bg-primary text-primary-foreground hover:bg-accent transition">
+                {t('downloadCV')}
+              </a>
+            </li>
           </ul>
           <div class="flex items-center space-x-2">
             <button

@@ -9,6 +9,7 @@ const resources = {
       home: 'Home',
       projects: 'Projects',
       contact: 'Contact',
+      downloadCV: 'Download CV',
       // Intro
       greeting: "Hi, I'm ",
       tagline: 'I build fast, modern web experiences with clean, modular code.',
@@ -100,6 +101,7 @@ const resources = {
       home: 'Inicio',
       projects: 'Proyectos',
       contact: 'Contacto',
+      downloadCV: 'Descargar CV',
       // Intro
       greeting: 'Hola, soy ',
       tagline:
