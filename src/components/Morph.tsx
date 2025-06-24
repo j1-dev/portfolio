@@ -1,5 +1,8 @@
-import { JSX, useEffect, useRef } from 'react';
+'use client';
+
+import { type JSX, useEffect, useRef } from 'react';
 import '../style.css';
+
 export default function Morph({
   texts,
   size = 90,
@@ -9,10 +12,10 @@ export default function Morph({
 }): JSX.Element {
   const text1Ref = useRef<HTMLSpanElement>(null);
   const text2Ref = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const morphTime = 2;
   const cooldownTime = 0.5;
-  const fontSize = size;
 
   let textIndex = texts.length - 1;
   let lastFrameTime = performance.now();
@@ -24,6 +27,14 @@ export default function Morph({
       text1: text1Ref.current,
       text2: text2Ref.current,
     };
+
+    // Set initial font size
+    if (elts.text1) {
+      elts.text1.style.fontSize = `${size}px`;
+    }
+    if (elts.text2) {
+      elts.text2.style.fontSize = `${size}px`;
+    }
 
     const doMorph = () => {
       morph -= cooldown;
@@ -77,7 +88,7 @@ export default function Morph({
     const animate = () => {
       const shouldIncrementIndex = cooldown > 0;
       const currentTime = performance.now();
-      const deltaTime = (currentTime - lastFrameTime) / 1000; // Convert to seconds
+      const deltaTime = (currentTime - lastFrameTime) / 1000;
       lastFrameTime = currentTime;
 
       cooldown -= deltaTime;
@@ -96,23 +107,34 @@ export default function Morph({
     animate();
 
     return () => cancelAnimationFrame(animationFrame);
-  }, [fontSize]);
-
-
+  }, [texts, size]);
 
   return (
-    <>
-      <div id="container">
+    <div className="relative inline-block">
+      <div
+        id="container"
+        ref={containerRef}
+        className="relative flex items-center justify-center"
+        style={{ minHeight: `${size * 1.2}px` }}>
         <span
           id="text1"
           ref={text1Ref}
-          class={`text-[${fontSize}px] absolute w-full text-center font-sans font-bold`}></span>
+          style={{
+            fontSize: `${size}px`,
+            lineHeight: '1.1',
+          }}
+        />
         <span
           id="text2"
           ref={text2Ref}
-          class={`text-[${fontSize}px] absolute w-full text-center font-sans font-bold`}></span>
+          style={{
+            fontSize: `${size}px`,
+            lineHeight: '1.1',
+          }}
+        />
       </div>
-      <svg id="filters">
+
+      <svg className="absolute opacity-0 pointer-events-none">
         <defs>
           <filter id="threshold">
             <feColorMatrix
@@ -126,6 +148,6 @@ export default function Morph({
           </filter>
         </defs>
       </svg>
-    </>
+    </div>
   );
 }

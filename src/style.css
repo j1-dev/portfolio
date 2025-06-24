@@ -223,7 +223,6 @@ body {
 
   #container {
     /* Center the container horizontally and vertically. */
-    position: absolute;
     /* transform: translate(-50%, -50%); */
 
     /* Set the width and height as needed. */
@@ -250,6 +249,6 @@ body {
   text-align: center;
 
   user-select: none; */
-    @apply absolute w-full text-center font-sans font-bold;
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold whitespace-nowrap;
   }
 }

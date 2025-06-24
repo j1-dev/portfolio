@@ -184,12 +184,12 @@ function App() {
             </div>
 
             {/* Animated Skills */}
-            <div class="mb-12 h-32 flex items-center justify-center">
-              <div class="relative w-full max-w-2xl h-20 flex items-center justify-center">
-                <div class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text -translate-x-1/2">
+            <div class="mb-12 flex items-center justify-center">
+              <div class="w-full flex justify-center">
+                <div class="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text">
                   <Morph
                     texts={t('skills', { returnObjects: true }) as string[]}
-                    size={52}
+                    size={64}
                   />
                 </div>
               </div>
