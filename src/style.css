@@ -37,7 +37,7 @@
   font-family: 'Helvetica';
   src: url('/font/HelveticaNeueBold.otf') format('opentype');
   font-weight: 600;
-  font-style: ormal;
+  font-style: normal;
 }
 
 .animated-background {
@@ -224,7 +224,7 @@ body {
   #container {
     /* Center the container horizontally and vertically. */
     position: absolute;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
 
     /* Set the width and height as needed. */
     width: 100%;

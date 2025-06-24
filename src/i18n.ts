@@ -14,6 +14,8 @@ const resources = {
       greeting: "Hi, I'm ",
       tagline: 'I build fast, modern web experiences with clean, modular code.',
       specializations: ['React', 'Java', 'Docker', 'Integration'],
+      projectCollection:
+        'A collection of projects that showcase my technical skills and passion for creating impactful solutions.',
       // Projects and skills
       projectList: [
         {
@@ -81,9 +83,11 @@ const resources = {
       // Buttons
       github: 'GitHub',
       linkedin: 'LinkedIn',
-      viewProject: 'View Project →',
-      visitProject: 'Visit project →',
+      viewProject: 'View Project',
+      visitProject: 'Visit project',
       // Section titles
+      discuss:
+        "Let's discuss how we can work together to bring your ideas tolife.",
       featuredProjects: 'Featured Projects',
       getInTouch: 'Get in Touch',
       sendMessage: 'Send Message',
@@ -91,6 +95,8 @@ const resources = {
       name: 'Name',
       email: 'Email',
       message: 'Message',
+      fullName: 'Your full name',
+      tellMe: 'Tell me about your project or just say hello!',
       // Footer
       footerText: '© 2025 {{author}}.',
     },
@@ -107,6 +113,8 @@ const resources = {
       tagline:
         'Construyo experiencias web rápidas y modernas con código limpio y modular.',
       specializations: ['React', 'Java', 'Docker', 'Integración'],
+      projectCollection:
+        'Una colección de proyectos que muestran mis habilidades técnicas y mi pasión por crear soluciones efectivas.',
       // Projects and skills
       projectList: [
         {
@@ -174,16 +182,20 @@ const resources = {
       // Buttons
       github: 'GitHub',
       linkedin: 'LinkedIn',
-      viewProject: 'Ver Proyecto →',
-      visitProject: 'Visitar proyecto →',
+      viewProject: 'Ver Proyecto',
+      visitProject: 'Visitar proyecto',
       // Section titles
       featuredProjects: 'Proyectos Destacados',
-      getInTouch: 'Contáctame',
+      getInTouch: 'Contacta conmigo',
       sendMessage: 'Enviar Mensaje',
+      discuss:
+        'Hablemos sobre cómo podemos trabajar juntos para dar vida a tus ideas.',
       // Form fields
       name: 'Nombre',
       email: 'Correo',
       message: 'Mensaje',
+      fullName: 'Tu nombre completo',
+      tellMe: '¡Cuéntame sobre tu proyecto o simplemente saluda!',
       // Footer
       footerText: '© 2025 {{author}}.',
     },

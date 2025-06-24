@@ -98,9 +98,7 @@ export default function Morph({
     return () => cancelAnimationFrame(animationFrame);
   }, [fontSize]);
 
-  console.log(
-    `text-[${fontSize}px] absolute w-full text-center font-sans font-bold`
-  );
+
 
   return (
     <>

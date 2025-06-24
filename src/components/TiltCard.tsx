@@ -17,8 +17,7 @@ export function TiltCard({ children, options }: TiltCardProps) {
         reverse: true,
         max: 15, // max tilt rotation (degrees)
         speed: 400, // how fast the tilt responds
-        glare: true, // enables glare effect
-        'max-glare': 0.3, // glare intensity
+        glare: false, // enables glare effect
         ...options,
       });
 
