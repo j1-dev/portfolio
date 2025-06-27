@@ -42,13 +42,21 @@ const resources = {
           url: 'https://github.com/j1-dev/erasmus',
           pic_url: '/CGI.png',
         },
+        // {
+        //   title: 'Leelo',
+        //   desc: 'Reddit-like mobile app using React Native & Supabase.',
+        //   full_description:
+        //     'Leelo was my degree`s final project. This app allowed the user to create forum boards for an specific theme (sports, nature, music) as well as post, comment and rate content on any forum. It was made using React Native for the front-end and Supabase for the back-end.',
+        //   url: 'https://github.com/j1-dev/leelo',
+        //   pic_url: 'leelo.png',
+        // },
         {
-          title: 'Leelo',
-          desc: 'Reddit-like mobile app using React Native & Supabase.',
+          title: 'Flowtrack',
+          desc: 'Full-stack Next.js app with prisma and tailwindcss for tracking tasks and habits.',
           full_description:
-            'Leelo was my degree`s final project. This app allowed the user to create forum boards for an specific theme (sports, nature, music) as well as post, comment and rate content on any forum. It was made using React Native for the front-end and Supabase for the back-end.',
-          url: 'https://github.com/j1-dev/leelo',
-          pic_url: 'leelo.png',
+            'Flowtrack is a full-stack application built with Next.js, Prisma, and Tailwind CSS. It allows users to track their tasks and habits efficiently, providing a modern and responsive user interface, as well as analytics that provide feedback on their day to day progress.',
+          url: 'https://flowtrack-ochre.vercel.app/',
+          pic_url: '/flowtrack2.png',
         },
         {
           title: 'Seal',
@@ -141,13 +149,21 @@ const resources = {
           url: 'https://github.com/j1-dev/erasmus',
           pic_url: '/CGI.png',
         },
+        // {
+        //   title: 'Leelo',
+        //   desc: 'App móvil tipo Reddit usando React Native y Supabase.',
+        //   full_description:
+        //     'Leelo fue mi proyecto final de grado. Esta app permitía al usuario crear foros temáticos (deportes, naturaleza, música), así como publicar, comentar y votarlo todo en cualquier foro. Se desarrolló con React Native en el frontend y Supabase en el backend.',
+        //   url: 'https://github.com/j1-dev/leelo',
+        //   pic_url: '/leelo.png',
+        // },
         {
-          title: 'Leelo',
-          desc: 'App móvil tipo Reddit usando React Native y Supabase.',
+          title: 'Flowtrack',
+          desc: 'Aplicación full-stack con Next.js, Prisma y Tailwind CSS para el seguimiento de tareas y hábitos.',
           full_description:
-            'Leelo fue mi proyecto final de grado. Esta app permitía al usuario crear foros temáticos (deportes, naturaleza, música), así como publicar, comentar y votarlo todo en cualquier foro. Se desarrolló con React Native en el frontend y Supabase en el backend.',
-          url: 'https://github.com/j1-dev/leelo',
-          pic_url: '/leelo.png',
+            'Flowtrack es una aplicación full-stack construida con Next.js, Prisma y Tailwind CSS. Permite a los usuarios realizar un seguimiento de sus tareas y hábitos de manera eficiente, proporcionando una interfaz de usuario moderna y receptiva, así como análisis que ofrecen retroalimentación sobre su progreso diario.',
+          url: 'https://flowtrack-ochre.vercel.app/',
+          pic_url: '/flowtrack2.png',
         },
         {
           title: 'Seal',
